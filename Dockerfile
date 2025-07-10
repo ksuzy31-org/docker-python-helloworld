@@ -1,5 +1,4 @@
-FROM python:3.7-slim
-
+FROM python:3.8.10
 # Add requirements file in the container
 COPY requirements.txt ./requirements.txt
 RUN pip install -r requirements.txt
