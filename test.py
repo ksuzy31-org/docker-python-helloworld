@@ -48,5 +48,9 @@ class Logger:
         current_date_n_time = datetime.now()
         if with_date:
             text = '\n'.join([f'{current_date_n_time} - {l}' for l in text.split('\n')])
-        with open('tests_output.log', 'a', encoding='utf-8') as f:
-            f.write(text)
+        try:
+            with open('tests_output.log', 'a', encoding='utf-8') as f:
+                f.write(text)
+        except Exception as e:
+            # Avoid crashing on logging failure
+            print(f"Logging to file failed: {e}")
